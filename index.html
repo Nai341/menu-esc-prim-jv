@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Escuela Primaria José Vasconcelos</title>
+    <link rel="stylesheet" href="estilos.css"> <!-- (Puente de coneccion)
+                                                Le dice "Busca el archivo estilos.css y aplicale todos los colores, tipos de letra, tamaños y adornos a esta pagina"
+                                                rel="stylesheet" indica que el archivo enlazado es una hoja de estilos.
+                                                href="estilos.css" es la direccion/nombre del archivo CSS.-->
+    <!-- Le decimos al HTML: entra a la carpeta "img" y busca "favicon.png" -->
+<link rel="icon" type="image/png" href="img/favicon1.png">
+ <!--favicon-->
+</head>
+<body>
+    <!-- Encabezado de la App -->
+  <header class="header"> 
+    <div class="icono-app">🍽️</div>
+    <h1>🍎 Menú Escolar 😋</h1>
+    <h4>Escuela Primaria José Vasconcelos</h4>
+    <p><em>Ciclo Rotativo</em></p>
+  </header>
+
+  <main class="contenedor"> <!--contenido principal-->
+                            <!--(class)tarjeta o cajita visual a toda esa sección-->
+
+    <!-- Tarjeta del dia actual -->
+    <section class="tarjeta-hoy"> <!--agrupar contenido que pertenece a un mismo tema o sección.-->
+      <span class="etiqueta-hoy">HOY</span> <!--sirve para envolver pedacitos pequeños de texto dentro de un bloque sin romper el renglón.-->
+      <h2 id="fecha-hoy">Cargando fecha...</h2>
+      <div class="comida-detalle"> <!--Es la caja contenedora estándar
+                                        Sirve para meter varios elementos juntos
+                                     podemos moverlos, darles espacio o aplicarles estilos 
+                                     a los dos al mismo tiempo.-->
+        <h3 id="platillo-hoy">Cargando menú...</h3>
+        <p id="bebida-hoy"></p>
+      </div>
+    </section>
+
+    <!-- Buscador interactivo por fecha -->
+    <section class="seccion-consulta">
+      <label for="selector-fecha"><b>Consultar otra fecha:</b></label> <!--Es una etiqueta de texto descriptiva 
+                                                                            asociada a un campo donde el usuario escribe o selecciona algo.-->
+                                                                            <!--(<b>) Pone el texto en negrita-->
+                                                                            <!--Es un "amarre" invisible. Le dice al navegador: "Este texto pertenece al elemento que tiene el ID selector-fecha". 
+                                                                            Así, si la mamá le da clic a la palabra "Consultar otra fecha", el navegador automáticamente abre el selector de fecha.-->
+      <input type="date" id="selector-fecha"> <!--Es un campo de entrada de datos-->
+                                                <!--(id="")Es la cédula o identidad única del elemento-->
+      <div id="resultado-busqueda" class="tarjeta-resultado oculto">
+        <!-- Aquí JavaScript mostrará el menú del día seleccionado -->
+      </div>
+    </section>
+
+    <!-- Pestañas para ver la vista completa de 2 semanas -->
+    <section class="seccion-semanas">
+      <div class="botones-pestana">
+        <button id="btn-semana1" class="btn-pestana activa" onclick="mostrarSemana(1)">Semana 1</button>
+        <!--class="btn-pestana activa": Tiene dos clases asignadas (btn-pestana) para darle el diseño de pestaña y
+         (activa) para que se vea iluminado/remarcado en CSS cuando esté seleccionado. 
+         (onclick="mostrarSemana(1)"): Significa "al hacer clic (onclick), ejecuta una función en JavaScript llamada mostrarSemana(1)". 
+         Es como apretar un interruptor de luz.-->
+        <button id="btn-semana2" class="btn-pestana" onclick="mostrarSemana(2)">Semana 2</button>
+      </div>
+
+      <!-- Contenedor donde JS pintará los 5 días de la semana -->
+      <div id="contenedor-semana" class="grid-dias">
+        <!-- Se llena dinámicamente con JavaScript -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Pie de página de la aplicación -->
+  <footer class="pie-pagina">
+    <p><b>Nota:</b> Este menú opera en un ciclo rotativo de 2 semanas continuas.</p>
+    <p><small>Desarrollado para la Esc. Prim. José Vasconcelos</small></p>
+  </footer>
+
+  <!-- Enlazamos nuestro archivo de JavaScript para la lógica -->
+  <script src="app.js"></script> <!--Es el enlace que conecta el archivo JavaScript-->
+    
+</body>
+</html>
